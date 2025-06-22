@@ -2,6 +2,7 @@ import { Router } from 'express'
 import {
   createTransaction,
   deleteTransactionById,
+  getSummaryByUserId,
   getTransactionsByUserId,
 } from '../controllers/transactions.controllers.js'
 
@@ -13,6 +14,6 @@ router.post('/', createTransaction)
 
 router.delete('/:id', deleteTransactionById)
 
-router.get('/summary/:userId', getTransactionsByUserId)
+router.get('/summary/:userId', getSummaryByUserId)
 
 export default router

@@ -16,6 +16,12 @@ app.get('/', (req, res) => res.send('its working.'))
 
 app.use('/api/transactions', transactionsRoutes)
 
+app.use((req, res, next) => {
+  res.status(404).json({
+    message: 'Route not found',
+  })
+})
+
 initDB().then(() =>
   app.listen(port, () =>
     console.log(`Server is up and runnning on PORT:${port}`)
